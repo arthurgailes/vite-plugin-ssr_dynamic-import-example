@@ -1,9 +1,7 @@
-import React from 'react'
-export { Page }
+import React from "react";
+export { Page };
 
-import './index.css'
-
-const Loading = () => <div>Loading</div>
+const Loading = () => <div>Loading</div>;
 function Page() {
   return (
     <>
@@ -12,20 +10,20 @@ function Page() {
       <ul>
         <li>Rendered to HTML and hydrated in the browser.</li>
         <li>
-          Interactive - only loaded on client: <ClientSideComponent />
+          Interactive - this component is loaded dynamically on client:{" "}
+          <ClientSideComponent />
         </li>
       </ul>
-      <p className="colored ssr">Blue text.</p>
     </>
-  )
+  );
 }
 
 function ClientSideComponent() {
   // We lazily load the client-side component
-  const Counter = React.lazy(() => import('./Counter'))
+  const Counter = React.lazy(() => import("./Counter"));
   return (
     <React.Suspense fallback={<Loading />}>
       <Counter />
     </React.Suspense>
-  )
+  );
 }
