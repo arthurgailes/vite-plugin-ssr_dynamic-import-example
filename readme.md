@@ -7,8 +7,8 @@ This is an example of how to defer loading of specific components within an SSR/
 This example is trivial, but useful in cases with component libraries that can only be used on the browser, such as [react-leaflet](https://github.com/PaulLeCam/react-leaflet) or [deck.gl](https://deck.gl/)
 
 ```bash
-git clone git@github.com:brillout/vite-plugin-ssr
-cd vite-plugin-ssr/examples/render-modes/
+git@github.com:arthurgailes/vite-plugin-ssr_dynamic-import-example.git
+cd vite-plugin-ssr_dynamic-import-example/
 npm install
 npm run dev
 ```
