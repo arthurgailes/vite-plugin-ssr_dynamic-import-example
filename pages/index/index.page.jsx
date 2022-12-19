@@ -19,6 +19,9 @@ function Page() {
 }
 
 function ClientSideComponent() {
+  // This code would fix the problem, but produce hydration warnings
+  // const isBrowser = typeof window !== "undefined";
+  // if (!isBrowser) return null;
   // We lazily load the client-side component
   const Map = React.lazy(() => import("./Map"));
   return (
