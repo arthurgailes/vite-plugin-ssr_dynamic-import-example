@@ -6,10 +6,12 @@
   },
   "dependencies": {
     "@vitejs/plugin-react": "^2.0.1",
+    "leaflet": "^1.9.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-leaflet": "^4.2.0",
     "react-streaming": "^0.3.5",
     "vite": "^3.0.9",
-    "vite-plugin-ssr": "0.4.43"
+    "vite-plugin-ssr": "^0.4.62"
   }
 }

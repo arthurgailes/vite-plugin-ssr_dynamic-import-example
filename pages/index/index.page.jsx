@@ -20,10 +20,10 @@ function Page() {
 
 function ClientSideComponent() {
   // We lazily load the client-side component
-  const Counter = React.lazy(() => import("./Counter"));
+  const Map = React.lazy(() => import("./Map"));
   return (
     <React.Suspense fallback={<Loading />}>
-      <Counter />
+      <Map />
     </React.Suspense>
   );
 }
