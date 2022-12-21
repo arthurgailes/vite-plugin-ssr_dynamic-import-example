@@ -18,13 +18,16 @@ function Page() {
 }
 
 function ClientSideComponent() {
+  // set the initial state to something that can be rendered on server
   const [Map, setMap] = React.useState(() => Loading);
   const isBrowser = typeof window !== "undefined";
 
+  // once on the browser, dynamically import the component
   React.useEffect(() => {
     if (isBrowser) setMap(() => React.lazy(() => import("./Map")));
   }, [isBrowser]);
 
+  // Suspense is necessary for rendering async/dynamically improrted components
   return (
     <React.Suspense fallback={<Loading />}>
       <Map />
