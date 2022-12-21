@@ -9,21 +9,22 @@ function Page() {
       <p>This page is:</p>
       <ul>
         <li>Rendered to HTML and hydrated in the browser.</li>
-        <li>
-          Interactive - this component is loaded dynamically on client:{" "}
-          <ClientSideComponent />
-        </li>
+        <li>Interactive - this component is loaded dynamically on client: </li>
       </ul>
+
+      <ClientSideComponent />
     </>
   );
 }
 
 function ClientSideComponent() {
-  // This code fixes the problem, but produce hydration warnings
+  const [Map, setMap] = React.useState(() => Loading);
   const isBrowser = typeof window !== "undefined";
-  if (!isBrowser) return null;
-  // We lazily load the client-side component
-  const Map = React.lazy(() => import("./Map"));
+
+  React.useEffect(() => {
+    if (isBrowser) setMap(() => React.lazy(() => import("./Map")));
+  }, [isBrowser]);
+
   return (
     <React.Suspense fallback={<Loading />}>
       <Map />
